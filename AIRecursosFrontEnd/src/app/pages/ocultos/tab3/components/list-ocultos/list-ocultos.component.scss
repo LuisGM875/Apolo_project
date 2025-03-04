@@ -1,0 +1,13 @@
+ion-card {
+    padding: 0px;
+    margin-top: 10px;
+
+    div {
+        ion-button {
+            --background: none;
+            color: #000000;
+            margin: 0px;
+            font-size: 12px;
+        }
+    }
+}

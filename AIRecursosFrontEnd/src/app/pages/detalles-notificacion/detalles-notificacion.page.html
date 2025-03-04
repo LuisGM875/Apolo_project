@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true">
+
+  <div class="inicio">
+    <ion-button fill="clear" size="small" class="boton-agregar" (click)="back()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>     
+    <h1>Notificaciones</h1>
+  </div>
+  
+  <div class="principal">
+    <div class="notificacion-container">
+      <div class="logo-container">
+        <img src="./../../../../assets/Kohmi.jpg" alt="Logo Empresa">
+      </div>
+
+      <div class="container-principal">
+        <h2 style="text-align: center;">{{ notificacion.empresa }}</h2>
+        <p><strong>{{ notificacion.titulo }}</strong></p>
+        <p><strong>{{ notificacion.empresa }}</strong> {{ notificacion.descripcion }} <strong>{{ notificacion.recurso }}</strong></p>
+        <p>Por una tarifa de <strong>{{ notificacion.tarifa | currency }}</strong></p>
+        <p >En un horario de <strong>{{ notificacion.horario }}</strong></p>
+        <p>Con una fecha de inicio <strong>{{ notificacion.fechaInicio }}</strong> y una fecha de terminación <strong>{{ notificacion.fechaFin }}</strong></p>
+        <p>Con la modalidad <strong>{{ notificacion.modalidad }}</strong></p>
+  
+      </div>
+     
+      <div class="botones-container">
+        <ion-button class="deny">DENEGAR</ion-button>
+        <ion-button class="accept">ACEPTAR</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

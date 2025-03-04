@@ -1,0 +1,9 @@
+ion-toolbar {
+    --background: transparent;
+    ion-button {
+        --background: rgba(255, 255, 255, 0.3);
+        margin: 0px 10px 10px 10px;
+        --border-radius: 10px;
+        text-transform: capitalize;
+    }
+}

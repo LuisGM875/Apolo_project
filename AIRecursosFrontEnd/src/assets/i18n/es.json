@@ -1,0 +1,22 @@
+{
+    "label.email": "Correo Electrónico",
+    "label.password": "Contraseña",
+    "label.welcome": "Bienvenido",
+    "label.enter": "INGRESAR",
+    "label.recoverpsswd": "¿Has olvidado tu contraseña?",
+    "label.continuewith": "continual con",
+    "label.registration1": "¿No tienes cuenta?",
+    "label.registration2": "Crea una cuenta",
+    "label.forgotpsswd": "¿Olvidaste la",
+    "label.forgotpsswd2": "contraseña?",
+    "label.message": "Ingresa tu correo para restablecer tu contraseña",
+    "label.send": "ENVIAR",
+    "label.cancel": "CANCELAR",
+    "label.resetpsswd": "Restaurar",
+    "label.resetpsswd2": "contraseña",
+    "label.newpsswd": "Nueva contraseña",
+    "label.confirmpsswd": "Confirmar contraseña",
+    "label.save": "GUARDAR",
+    "label.messagepsswd": "Las contraseñas no coinciden",
+    "label.google auth": "Iniciar sesión con Google"
+}

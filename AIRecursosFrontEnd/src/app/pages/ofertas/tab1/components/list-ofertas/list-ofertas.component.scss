@@ -1,0 +1,16 @@
+.icon-small {
+  --icon-size: 8px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+.icon-size {
+  font-size: var(--icon-size);
+}
+
+.small-icon ion-img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}

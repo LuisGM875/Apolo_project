@@ -1,0 +1,7 @@
+{
+  "name": "AIDR",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

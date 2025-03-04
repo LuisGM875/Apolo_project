@@ -1,0 +1,96 @@
+@import '@ionic/angular/css/ionic.bundle.css';
+
+ion-content {
+    --background: url(/assets/images/fondo.jpg) no-repeat center center / cover;
+
+    .middle {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100%;
+        padding: 20px;
+
+        .box {
+
+            position: relative;
+            border-radius: 20px;
+            padding: 20px 15px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.1);
+
+            &::before {
+
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: inherit;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                z-index: -1;
+            }
+
+            h1 {
+                font-size: 25px;
+                margin-bottom: 5px;
+            }
+
+            ion-item {
+
+                --background: rgba(0, 0, 0, 0.6);
+                // --border-color: #27AE60;
+                // --border-width: 1px;
+                // --border-style: solid;
+                --border-radius: 10px;
+                --padding-start: 15px;
+                --padding-end: 15px;
+                margin-bottom: 20px;
+
+                ion-input {
+
+                    --color: white;
+                    --placeholder-color: rgba(255, 255, 255, 0.8);
+                }
+
+                ion-icon {
+
+                    color: #27AE60;
+                }
+            }
+
+            .btn {
+                display: flex;
+                justify-content: center;
+                margin-top: 30px;
+                gap: 10px;
+
+                ion-button {
+                    --border-radius: 25px;
+                    --padding-top: 15px;
+                    --padding-bottom: 15px;
+                    width: 100%;
+                    max-width: 300px;
+                    // margin: 0 auto;
+                    // font-weight: bold;
+                }
+            }
+
+            // .error-container {
+            //     display: flex; /* Utiliza flexbox */
+            //     justify-content: center; /* Centra horizontalmente */
+            //     align-items: center; /* Centra verticalmente */
+            //     text-align: center; /* Asegura que el texto esté centrado */
+            //     margin: 10px 0; /* Espaciado opcional */
+            //   }
+
+            //   .error-icon{
+            //     color: yellow; /* Color del ícono */
+            //     font-size: 24px; /* Aumenta el tamaño del ícono (ajusta según tus necesidades) */
+            //     margin-right: 8px; /* Espacio entre el ícono y el texto */
+            //   }
+              
+        }
+    }
+}

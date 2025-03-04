@@ -1,0 +1,22 @@
+{
+    "label.email": "Email",
+    "label.password": "Password",
+    "label.welcome": "Welcome",
+    "label.enter": "SING IN",
+    "label.recoverpsswd": "Forgot your password?",
+    "label.continuewith": "continue with",
+    "label.registration1": "Don't have an account?",
+    "label.registration2": "Create an account",
+    "label.forgotpsswd": "Forgot your",
+    "label.forgotpsswd2": "password?",
+    "label.message": "Enter your email to reset your password",
+    "label.send": "SEND",
+    "label.cancel": "CANCEL",
+    "label.resetpsswd": "Reset",
+    "label.resetpsswd2": "password",
+    "label.newpsswd": "New password",
+    "label.confirmpsswd": "Confirm password",
+    "label.save": "SAVE",
+    "label.messagepsswd": "Passwords don't match",
+    "label. google auth": "Sing in with Google"
+}

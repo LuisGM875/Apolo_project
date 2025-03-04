@@ -1,0 +1,21 @@
+.header_nav {
+    box-shadow: none;
+    display: grid;
+    grid-template-columns: 4fr repeat(3, 1fr);
+    column-gap: 5px;
+    justify-content: center;
+    align-items: center;
+
+    .header_searchbar {
+        --background: rgba(255, 255, 255, 0.50);
+        --border-radius: 20px;
+    }
+
+    ion-button {
+        --box-shadow: none;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+}

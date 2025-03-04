@@ -1,0 +1,55 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>restore-psswd</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<!-- Contenido principal de la página, ocupará toda la pantalla -->
+<ion-content [fullscreen]="true">
+
+  <div class="middle">
+    <div class="box bg-white/20 rounded-2xl shadow-[0px_4px_32px_0px_rgba(0,0,0,0.25)] border border-black/0 backdrop-blur-2xl">
+      <form #resetForm="ngForm" class="space-y-4">
+        <ion-text color-shame="light" class="ion-text-center">
+          <h1>{{'label.resetpsswd' | translate}}<br>{{'label.resetpsswd2' | translate}}</h1>
+        </ion-text>
+
+        <hr style="border-top: 1px solid white; margin: 1px auto 30px; max-width: 280px; opacity: 0.7; width: 100%;">
+
+        <!-- Campo de entrada para la nueva contraseña -->
+        <ion-item>
+          <ion-input [type]="showPassword ? 'password' : 'text'" [placeholder]=" 'label.newpsswd' | translate "
+            name="newPassword" [(ngModel)]="newPassword" required #passwordInput="ngModel"></ion-input>
+          <ion-icon slot="end" [name]="showPassword ? 'lock-closed' : 'lock-open'"
+            (click)="togglePasswordVisibility()"></ion-icon>
+        </ion-item>
+
+        <!-- Campo de entrada para confirmar la nueva contraseña -->
+        <ion-item>
+          <ion-input [type]="showPassword ? 'password' : 'text'" [placeholder]=" 'label.confirmpsswd' | translate "
+            name="confirmPassword" [(ngModel)]="confirmPassword" required #confirmInput="ngModel"></ion-input>
+          <ion-icon slot="end" [name]="showPassword ? 'lock-closed' : 'lock-open'"
+            (click)="togglePasswordVisibility()"></ion-icon>
+        </ion-item>
+
+        <!-- Mensaje de error que se muestra si las contraseñas no coinciden -->
+        <div *ngIf="passwordMismatch && (passwordInput.touched || confirmInput.touched)"
+          style="display: flex; justify-content: center; align-items: center; text-align: center; margin: 10px 0; color: black; font-weight: bold;">
+          <ion-text>
+            <ion-icon name="warning" style="color: yellow; font-size: 20px; margin-right: 8px;"></ion-icon>
+            <span>{{'label.messagepsswd' | translate}}</span>
+          </ion-text>
+        </div>
+
+        <div class="btn">
+          <ion-button style="--background: #092E1C; --color: white;" (click)="resetPassword()"
+            [disabled]="resetForm.invalid || passwordMismatch">{{'label.save' |
+            translate}}</ion-button>
+          <ion-button style="--background: #8a0808; --color: white;" (click)="onCancel()">{{'label.cancel' |
+            translate}}</ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</ion-content>

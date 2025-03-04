@@ -1,0 +1,1 @@
+mvnw clean package && docker build -t mx-queretaro-1.ocir.io/axd4fuzohfaf/air_repository:v0.0.1 . && docker push mx-queretaro-1.ocir.io/axd4fuzohfaf/air_repository:v0.0.1

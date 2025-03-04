@@ -1,0 +1,120 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>registration</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <div class="min-h-screen flex items-center justify-center">
+  <div class="middle">
+    <div class="box bg-white/20 rounded-2xl shadow-[0px_4px_32px_0px_rgba(0,0,0,0.25)] backdrop-blur-2xl">
+      <form #registrationForm="ngForm" class="space-y-2">
+        <ion-text color-shame="light" class="ion-text-center">
+          <h1 class="text-2xl font-bold text-white">REGISTRAR EMPRESA</h1>
+        </ion-text>
+
+        <hr style="border-top: 1px solid white; margin: 1px auto 20px; max-width: 250px; opacity: 0.7; width: 100%;">
+
+        <!--contenedor de la foto de perfil-->
+        <!-- <div class="profile-photo-container">
+          <div class="outer" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+            <div class="inner" (click)="openOptionSelection()">
+              <ion-icon name="camera" class="camera-icon"></ion-icon>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="profile-photo-container">
+          <div class="outer" (click)="openOptionSelection()">
+            <ng-container *ngIf="photo; else defaultIcon">
+              <img [src]="photo" alt="Foto de perfil" class="profile-photo">
+            </ng-container>
+            <ng-template #defaultIcon>
+              <div class="default-icon">
+                <ion-icon name="person" class="person-icon"></ion-icon>
+              </div>
+            </ng-template>
+            <div class="inner">
+              <ion-icon name="camera" class="camera-icon"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative flex items-center py-2">
+          <input type="text" placeholder="Nombre de Empresa" name="companyName"
+                 [(ngModel)]="registration.companyName" required #companyName="ngModel"
+                 class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white">
+          <ion-icon name="business" class="absolute right-2 text-green-500"></ion-icon>
+        </div>
+
+        <div class="relative flex items-center py-2">
+          <input type="tel" placeholder="Número de contacto" name="contactNumber"
+                 [(ngModel)]="registration.contactNumber" required
+                 #contactNumber="ngModel" class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white">
+          <ion-icon name="call" class="absolute right-2 text-green-500"></ion-icon>
+        </div>
+
+        <div class="relative flex items-center py-2">
+          <input [type]="showPassword ? 'password' : 'text'" [placeholder]="'Contraseña'" name="newPassword"
+                 [(ngModel)]="newPassword" required #passwordInput="ngModel"
+                 class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white">
+          <ion-icon [name]="showPassword ? 'lock-closed' : 'lock-open'" (click)="togglePasswordVisibility()"
+                    class="absolute right-2 text-green-500"></ion-icon>
+        </div>
+
+        <div class="relative flex items-center py-2">
+          <input [type]="showPassword ? 'password' : 'text'" [placeholder]="'Confirmar Contraseña'" name="confirmPassword"
+                 [(ngModel)]="confirmPassword" required #confirmInput="ngModel"
+                 class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white">
+          <ion-icon [name]="showPassword ? 'lock-closed' : 'lock-open'" (click)="togglePasswordVisibility()"
+                    class="absolute right-2 text-green-500"></ion-icon>
+        </div>
+
+        <div *ngIf="passwordMismatch && (passwordInput.touched || confirmInput.touched)"
+             style="display: flex; justify-content: center; align-items: center; text-align: center; margin: 15px 0; color: black; font-weight: bold;">
+          <ion-text>
+            <ion-icon name="warning" style="color: yellow; font-size: 20px; margin-right: 8px;"></ion-icon>
+            <span>Las contraseñas no son iguales</span>
+          </ion-text>
+        </div>
+
+        <div class="relative flex items-center py-2">
+          <input type="text" placeholder="Razón Social" name="ReasonSocial" [(ngModel)]="registration.ReasonSocial"
+                 required #ReasonSocial="ngModel" class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white">
+          <ion-icon name="people" class="absolute right-2 text-green-500"></ion-icon>
+        </div>
+
+        <div class="relative flex items-center py-2">
+          <input type="text" placeholder="RFC" name="RFC" [(ngModel)]="registration.RFC"
+                 required #RFC="ngModel" class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white">
+          <ion-icon name="bag" class="absolute right-2 text-green-500"></ion-icon>
+        </div>
+
+        <div class="relative flex items-center py-2">
+          <input type="text" placeholder="REPSE Folio" name="REPSEf" [(ngModel)]="registration.REPSEf"
+                 required #REPSEf="ngModel" class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white">
+          <ion-icon name="document-lock" class="absolute right-2 text-green-500"></ion-icon>
+        </div>
+
+        <div class="btn">
+          <button (click)="onSubmit()"
+                      [disabled]="!registrationForm.form.valid">
+            ENVIAR REGISTRO
+          </button>
+        </div>
+
+        <div class="registerLogin-container">
+          <ion-button fill="clear" class="registerlogin-button" (click)="regisLogin()">
+            ¿Ya tienes cuenta? <span>Iniciar sesión</span>
+          </ion-button>
+
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+  </div>
+
+</ion-content>

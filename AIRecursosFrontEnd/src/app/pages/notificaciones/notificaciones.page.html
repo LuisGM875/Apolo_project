@@ -1,0 +1,70 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-text color="medium">
+          <div class="inicio">
+            <ion-button fill="clear" size="small" class="boton-agregar" (click)="backtomain()">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+            </ion-button>
+            <h1>Notificaciones</h1>
+            <ion-button fill="clear" size="small" (click)="toggleCalendar()" class="boton-agregar">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </ion-button>
+
+
+            <div *ngIf="isCalendarVisible" class="calendar-container">
+              <ion-datetime
+                presentation="date"
+                (ionChange)="onDateChange($event)"></ion-datetime>
+            </div>
+
+          </div>
+          <ion-button fill="clear" size="small" (click)="resetFilter()" class="boton-agregar">
+            <ion-icon name="refresh-outline"></ion-icon>
+            <span class="text-black">Restablecer Filtro</span>
+          </ion-button>
+
+          <p class="text-black">Recientes</p>
+        </ion-text>
+
+        <!-- Notificaciones Recientes -->
+        <ng-container *ngFor="let notificacion of recientes; let i = index">
+          <ion-card [ngClass]="{'color1': i % 2 === 0, 'color2': i % 2 !== 0}" (click)="verDetalles(notificacion.id)">
+            <ion-item lines="none">
+              <ion-avatar slot="start">
+                <img src= "./../../../../assets/Kohmi.jpg"/>
+              </ion-avatar>
+              <ion-label>
+                <p class="fecha-ubicacion">{{ notificacion.fecha | date: 'dd/MM/yyyy' }}</p>
+                <h3>{{ notificacion.titulo }}</h3>
+                <p>{{ notificacion.descripcion }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ng-container>
+
+        <ion-text color="medium">
+          <h2>Hace 7 días</h2>
+        </ion-text>
+
+        <!-- Notificaciones Antiguas -->
+        <ng-container *ngFor="let notificacion of antiguas; let i = index">
+          <ion-card [ngClass]="{'color1': i % 2 === 0, 'color2': i % 2 !== 0}" (click)="verDetalles(notificacion.id)">
+            <ion-item lines="none">
+              <ion-avatar slot="start">
+                <img src= "./../../../../assets/Kohmi.jpg"/>
+              </ion-avatar>
+              <ion-label>
+                <p class="fecha-ubicacion">{{ notificacion.fecha | date: 'dd/MM/yyyy' }}</p>
+                <h3>{{ notificacion.titulo }}</h3>
+                <p>{{ notificacion.descripcion }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ng-container>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

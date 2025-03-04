@@ -1,0 +1,121 @@
+ion-content {
+    --background: #698C7B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    
+}
+
+.principal {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0px 0px 0px;
+   
+}
+.inicio{
+    
+    color: white;  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    
+    
+}
+.inicio ion-button{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.notificacion-container {
+    width: 90%;
+    height: 100%;
+    max-width: 400px;
+    background-color: #337043;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+   
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.container-principal{
+    padding: 0px 0px 30px 0px;
+}
+
+.logo-container img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 12px;;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+p strong {
+    font-weight: bold;
+}
+
+p.tarifa {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+p.horario {
+    font-weight: bold;
+}
+
+.botones-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.botones-container {
+    flex: 1;
+    margin: 0 5px;
+    border-radius: 10px;
+}
+
+ion-button.deny {
+    --background: #dc3545;
+}
+
+ion-button.accept {
+    --background: #28a745;
+}
+
+.inicio ion-icon{
+    color: white;
+    font-size: 35px;
+    
+}
+

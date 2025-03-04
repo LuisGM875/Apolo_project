@@ -1,0 +1,106 @@
+<ion-content class="ion-padding ion-text-center">
+  <div>
+    <ion-label>{{recurso.nombre}} {{recurso.primerApellido}} {{recurso.segundoApellido}}</ion-label>
+    <ion-label>{{recurso.puesto}}</ion-label>
+  </div>
+
+  <div class="container-flex">
+    <ion-label>{{recurso.tarifa}} / Mes</ion-label>
+    <ion-icon [color]="recurso.estatus ? 'success' : 'warning'" size="large" name="briefcase"></ion-icon>
+  </div>
+
+  <div class="container-flex">
+    <ion-thumbnail>
+      <img [alt]="recurso.empresa" src="./../../../../assets/Kohmi.jpg" />
+    </ion-thumbnail>
+    <ion-label>{{recurso.empresa.nombre}}</ion-label>
+  </div>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>Principales Tecnologias:</ion-label>
+          <li *ngFor="let tecnologia of recurso.tecnologias">{{tecnologia.nombre}}</li>
+        </ion-col>
+        <ion-col>
+          <ion-label>Modalidad: </ion-label>
+          <ion-text>{{recurso.modalidad}}</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div>
+    <ion-label>Descripcion: </ion-label>
+    <ion-text>
+      {{recurso.descripcion}}
+    </ion-text>
+  </div>
+  <div>
+    <ion-button (click)="downloadArchivo(recurso)" class="ion-text-center">
+      <ion-img class="img_icon" src="./../../../../assets/icons/pdf_icon.png"></ion-img>
+      {{recurso.archivo.nombre}}
+      <ion-icon color="success" name="download"></ion-icon>
+    </ion-button>
+  </div>
+  <div class="evaluacion-general" *ngIf="load">
+    <ion-label>Evaluacion General</ion-label>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-row>
+            <p>{{evaluacion.promedio}}</p>
+          </ion-row>
+          <ion-row>
+            <section class="icon-stars">
+              <ion-icon name="star" *ngFor="let num of [1,2,3,4,5]" 
+              [color]="getColor(num)"></ion-icon>
+            </section>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-row>
+            <ion-col>
+              {{evaluacion.estrella5}}
+            </ion-col>
+            <ion-col size="10">
+              <ion-progress-bar value=".{{evaluacion.estrella5}}" color="five"></ion-progress-bar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              {{evaluacion.estrella4}}
+            </ion-col>
+            <ion-col size="10">
+              <ion-progress-bar value=".{{evaluacion.estrella4}}" color="success"></ion-progress-bar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              {{evaluacion.estrella3}}
+            </ion-col>
+            <ion-col size="10">
+              <ion-progress-bar value=".{{evaluacion.estrella3}}" color="warning"></ion-progress-bar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              {{evaluacion.estrella2}}
+            </ion-col>
+            <ion-col size="10">
+              <ion-progress-bar value=".{{evaluacion.estrella2}}" color="two"></ion-progress-bar>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              {{evaluacion.estrella1}}
+            </ion-col>
+            <ion-col size="10">
+              <ion-progress-bar value=".{{evaluacion.estrella1}}" color="danger"></ion-progress-bar>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-button class="solicitar-button">Solicitar</ion-button>
+</ion-content>

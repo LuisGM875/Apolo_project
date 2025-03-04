@@ -1,0 +1,99 @@
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-item class="ion-item-card-recurso" lines="none">
+      <ion-button (click)="onCloseForm()" fill="none">
+        <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item class="ion-item-card-recurso" lines="none">
+      <ion-text>
+        Ofertar Recurso
+      </ion-text>
+    </ion-item>
+  </div>
+
+  <form class="ion-padding ion-margin" [formGroup]="formRecurso" (ngSubmit)="createUpdateRecurso()">
+
+    <input formControlName="idRecurso" name="idRecurso" type="hidden">
+
+    <ion-item class="ion-item-card-recurso">
+      <ion-icon slot="start" color="success" name="person"></ion-icon>
+      <ion-input formControlName="nombre" type="text" id="nombre" name="nombre" placeholder="Nombre"
+      minlength="4" maxlength="100"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-item-card-recurso">
+      <ion-icon slot="start" color="success" name="person"></ion-icon>
+      <ion-input formControlName="primerApellido" type="text" id="1erApellido" name="1erApellido" minlength="4"
+        maxlength="100" placeholder="Primer Apellido" required></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-item-card-recurso">
+      <ion-icon slot="start" color="success" name="person"></ion-icon>
+      <ion-input formControlName="segundoApellido" type="text" id="2doApellido" name="2doApellido" minlength="4"
+        maxlength="100" placeholder="Segundo Apellido" required></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-item-card-recurso">
+      <ion-icon slot="start" color="success" name="briefcase"></ion-icon>
+      <ion-select formControlName="puesto" id="puesto" name="puesto" placeholder="Puesto" required>
+        <ion-select-option value="Desarrollador Web">Desarrollador Web</ion-select-option>
+        <ion-select-option value="Desarrollador Mobile">Desarrollador Mobile</ion-select-option>
+        <ion-select-option value="Analista de Datos">Analista de Datos</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <section class="multiselect-content">
+      <ion-icon slot="start" color="success" name="laptop"></ion-icon>
+        <ng-multiselect-dropdown formControlName="tecnologias" [placeholder]="'Principales Tecnologias'"
+      [settings]="dropDownSettings" [data]="tecnologias" [class.multiselect]="true">
+      </ng-multiselect-dropdown>
+    </section>
+
+    <ion-item class="ion-item-card-recurso">
+      <ion-icon slot="start" color="success" name="earth"></ion-icon>
+      <ion-select formControlName="modalidad" id="modalidad" name="modalidad" placeholder="Modalidad" required>
+        <ion-select-option value="Presencial">Presencial</ion-select-option>
+        <ion-select-option value="Remoto">Remoto</ion-select-option>
+        <ion-select-option value="Hibrido">Hibrido</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ion-item-card-recurso">
+      <ion-icon slot="start" color="success" name="hourglass"></ion-icon>
+      <ion-select formControlName="experiencia" id="experiencia" name="experiencia" placeholder="Experiencia" required>
+        <ion-select-option value="Sin Experiencia">Sin Experiencia</ion-select-option>
+        <ion-select-option value="1 año - 3 años">1 año - 3 años</ion-select-option>
+        <ion-select-option value="4 años - 6 años">4 años - 6 años</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ion-item-card-recurso">
+      <ion-icon slot="start" color="success" name="cash"></ion-icon>
+      <ion-input formControlName="tarifa" type="text" id="tarifa" name="tarifa"
+        placeholder="Tarifa" required (input)="onChangeTarifa($event)"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-item-card-recurso">
+      <ion-icon slot="start" color="success" name="reader"></ion-icon>
+      <ion-textarea formControlName="descripcion" id="descripcion" name="descripcion" minlength="10" maxlength="100"
+        placeholder="Descripcion" required></ion-textarea>
+    </ion-item>
+
+    <ion-item class="ion-item-card-recurso" *ngIf="!recurso.archivo">
+      <ion-icon slot="start" color="success" name="document"></ion-icon>
+      <ion-input formControlName="archivo" type="file" accept=".pdf" id="cv" name="cv" placeholder="CV"
+        (change)="onChangeArchivo($event)" required></ion-input>
+    </ion-item>
+
+    <ion-button *ngIf="recurso.archivo" type="button" (click)="actionsArchivo()">
+      <ion-icon slot="start" color="success" name="document"></ion-icon>
+      <ion-label>{{recurso.archivo.nombre}}</ion-label>
+    </ion-button>
+
+    <ion-button type="submit" color="success">Confirmar</ion-button>
+
+  </form>
+</ion-content>

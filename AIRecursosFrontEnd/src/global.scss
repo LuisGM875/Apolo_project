@@ -1,0 +1,285 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+.transparent-modal .modal-wrapper { //hace que la modal sea transparente
+    --background: rgba(255, 255, 255, 0.39);
+}
+
+*:focus {
+    outline: none;
+}
+
+:root {
+	--ion-color-two: #FD5151;
+	--ion-color-two-rgb: 253,81,81;
+	--ion-color-two-contrast: #000000;
+	--ion-color-two-contrast-rgb: 0,0,0;
+	--ion-color-two-shade: #df4747;
+	--ion-color-two-tint: #fd6262;
+
+    --ion-color-five: #006600;
+	--ion-color-five-rgb: 0,102,0;
+	--ion-color-five-contrast: #ffffff;
+	--ion-color-five-contrast-rgb: 255,255,255;
+	--ion-color-five-shade: #005a00;
+	--ion-color-five-tint: #1a751a;
+}
+
+.ion-color-two {
+	--ion-color-base: var(--ion-color-two);
+	--ion-color-base-rgb: var(--ion-color-two-rgb);
+	--ion-color-contrast: var(--ion-color-two-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-two-contrast-rgb);
+	--ion-color-shade: var(--ion-color-two-shade);
+	--ion-color-tint: var(--ion-color-two-tint);
+}
+
+.ion-color-five {
+	--ion-color-base: var(--ion-color-five);
+	--ion-color-base-rgb: var(--ion-color-five-rgb);
+	--ion-color-contrast: var(--ion-color-five-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-five-contrast-rgb);
+	--ion-color-shade: var(--ion-color-five-shade);
+	--ion-color-tint: var(--ion-color-five-tint);
+}
+
+.img_icon {
+    width: 24px;
+}
+
+ion-content.background-tab {
+    --background: rgba(255, 255, 255, 0);
+}
+
+.ion-card-recurso {
+    --background: rgba(40, 49, 49, 100);
+    border-radius: 20px !important;
+
+    ion-card-header {
+        padding: 10px 10px 0px 10px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 5px;
+        justify-content: center;
+        align-items: center;
+
+        .empresa-title {
+            color: #000000;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #515151 !important;
+            grid-column: 1/4;
+        }
+
+        ion-thumbnail {
+            margin: 0 auto;
+            grid-row: -3/-1;
+            grid-column: 4/5;
+            width: 70px;
+            height: 70px;
+
+            img {
+                border-radius: 50%;
+            }
+        }
+
+        ion-card-title {
+            grid-column: 1/4;
+            margin: 0;
+        }
+    }
+
+    ion-label {
+        font-size: 11px !important;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    ion-text {
+        font-weight: bold;
+    }
+
+    ion-card-content {
+        font-size: 11px !important;
+        color: #ffffff;
+        padding: 0px !important;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        justify-content: center;
+        align-items: flex-start;
+
+        ion-item {
+            font-size: 11px !important;
+            color: #ffffff;
+            li {
+                margin: 0px;
+                padding: 5px;
+            }
+        }
+
+        ion-grid {
+            padding: 0px;
+            ion-row {
+                ion-col:first-child {
+                    border-right: 1px solid #515151;
+                }
+                ion-col:last-child {
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+
+    .buttons-card {
+        display: flex;
+        justify-content: end;
+
+
+        ion-button {
+            --background: rgba(255, 255, 255, 0.3);
+            margin: 0px 10px 10px 10px;
+            --border-radius: 10px;
+            text-transform: capitalize;
+        }
+    }
+
+    ion-icon {
+        font-size: 25px;
+    }
+}
+
+.ion-item-card-recurso {
+    --background: rgba(255, 255, 255, 0);
+    // padding: 0px !important;
+    // margin: 0px !important;
+}
+
+
+
+.custom-alert {
+    .alert-wrapper {
+        background: #698C7B;
+    }
+
+    div {
+        background: transparent;
+        border-radius: 10px !important;
+
+        div {
+            text-align: center !important;
+            border: none;
+            color: #ffffff !important;
+            margin-bottom: 10px;
+
+            button {
+                width: 110px;
+                color: #ffffff !important;
+                border-radius: 10px !important;
+
+                .alert-button-inner {
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            button:first-child {
+                background-color: #c5000f;
+            }
+
+            button:last-child {
+                background-color: #2dd55b;
+                margin: 0px;
+            }
+
+            img {
+                width: 50px !important;
+            }
+        }
+
+        div:nth-child(2) {
+            li {
+                padding-bottom: 10px;
+                text-align: justify;
+            }
+        }
+
+        div:last-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center !important;
+        }
+    }
+
+}
+
+::ng-deep {
+    .is-invalid {
+        .dropdown-btn {
+            border: 1px solid red !important;
+        }
+    }
+
+    .multiselect-dropdown {
+        .dropdown-btn {
+            .selected-item {
+                &:hover {
+                    box-shadow: 1px 1px 2px 0px #5a5a5a !important;
+                }
+            }
+        }
+    }
+}
+
+.custom-modal {
+    --background: #698C7B;
+    --border-radius: 15px !important;
+    --color: #ffffff !important;
+
+    ion-content {
+        --background: transparent;
+        --color: #ffffff !important;
+        --padding-bottom: 130px !important;
+    }
+
+}
+
+.bg-bacground {
+  background-color: #293232;
+}
