@@ -13,6 +13,7 @@ import { DetallesRecursoPage } from '../../pages/detalles-recurso/detalles-recur
 import { GetArchivo } from 'src/app/states/archivos/archivos.actions';
 import { ArchivosState } from 'src/app/states/archivos/archivos.state';
 import { AlertService } from 'src/app/services/alert.service';
+import {DarkModeService} from "../../../../../services/dark-mode";
 
 @Component({
   selector: 'app-list-ofertas',
@@ -20,19 +21,26 @@ import { AlertService } from 'src/app/services/alert.service';
   styleUrls: ['./list-ofertas.component.scss'],
 })
 export class ListOfertasComponent  implements OnInit {
-  
+
   @Select(RecursosState.recursos)
   recursos$: Observable<Recurso[]>
-  
-  recursos: Recurso[];
 
+  recursos: Recurso[];
+  isDarkMode: boolean;
   constructor(
     private store : Store,
     private modalController : ModalController,
-    private alertService : AlertService,
+    private alertService : AlertService, private darkModeService: DarkModeService
   ) { }
   ngOnInit() {
     this.getRecursos();
+    this.darkModeService.isDarkMode().subscribe((isDark) => {
+      this.isDarkMode = isDark;
+    });
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
   }
 
   async presentModal(recurso:Recurso) {

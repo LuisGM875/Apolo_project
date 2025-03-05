@@ -1,6 +1,10 @@
 @import '@ionic/angular/css/ionic.bundle.css';
 
 ion-content {
+
+  &.dark-background {
+    --background: url(/assets/images/black-fondo.jpg) no-repeat center center / cover;
+  }
     --background: url(/assets/images/fondo.jpg) no-repeat center center / cover;
 
     .middle {
@@ -9,6 +13,7 @@ ion-content {
         align-items: center;
         min-height: 100%;
         padding: 20px;
+
 
         .box {
             position: relative;
@@ -44,9 +49,7 @@ ion-content {
                     --placeholder-color: rgba(255, 255, 255, 0.8);
                 }
 
-                ion-icon {
-                    color: #27AE60;
-                }
+
             }
 
             .btn {
@@ -119,10 +122,63 @@ ion-content {
         }
     }
 
-  .btn button {
-    background-color: black;
-    border-radius: 10px; /* Adjust the value as needed */
-    color: white; /* Optional: to make the text visible on black background */
+  .btn-central {
+    background-color: #27AE60; /* Light mode background */
+    border-radius: 10px;
+    color: #000000; /* Light mode text color */
     padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.btn-central-dark {
+      background-color: #000000; /* Dark mode background */
+      color: white; /* Dark mode text color */
+    }
+  }
+
+  .text-green-500 {
+    color: #27AE60; /* Dark mode color */
+  }
+
+  .text-green-700 {
+    color: #000000; /* Light mode color */
+  }
+
+  .lunes {
+    background-color: #27AE60;
+  }
+
+  .text-white {
+    color: white;
+  }
+
+  .text-green-dark{
+    color: #155a33;
+  }
+
+  .text-black {
+    color: black;
+  }
+
+  .border-white{
+    border: 1px solid white;
+  }
+
+  .border-black{
+    border: 1px solid black;
+  }
+
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align the icon to the right */
+
+  .moon-icon {
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
   }
 }
+
+

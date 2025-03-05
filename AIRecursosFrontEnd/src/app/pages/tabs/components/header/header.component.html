@@ -1,14 +1,18 @@
 <ion-header class="header_nav">
   <ion-searchbar class="header_searchbar" show-clear-button="focus" placeholder="Buscar"></ion-searchbar>
   <ion-button color="none" shape="round">
-    <ion-icon slot="icon-only" name="options"></ion-icon>
+    <ion-icon slot="icon-only" name="options" [ngClass]="{'text-white': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
   </ion-button>
   <ion-button color="none" shape="round" (click)="noti()">
-    <ion-icon slot="icon-only" name="notifications"></ion-icon>
+    <ion-icon slot="icon-only" name="notifications" [ngClass]="{'text-white': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
+  </ion-button>
+  <ion-button color="none" shape="round" (click)="toggleDarkMode()">
+    <ion-icon slot="icon-only" name="moon" [ngClass]="{'text-white': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
   </ion-button>
   <ion-button size="large" color="none" shape="round">
     <ion-thumbnail>
-      <img  src="./../../../../assets/Kohmi.jpg" />
+      <img src="./../../../../assets/Kohmi.jpg" />
     </ion-thumbnail>
   </ion-button>
+
 </ion-header>

@@ -1,21 +1,59 @@
 .header_nav {
-    box-shadow: none;
-    display: grid;
-    grid-template-columns: 4fr repeat(3, 1fr);
-    column-gap: 5px;
-    justify-content: center;
-    align-items: center;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
 
-    .header_searchbar {
-        --background: rgba(255, 255, 255, 0.50);
-        --border-radius: 20px;
-    }
+  .header_searchbar {
+    flex: 1;
+    --background: rgba(255, 255, 255, 0.50);
+    --border-radius: 20px;
+  }
 
-    ion-button {
-        --box-shadow: none;
-    }
+  ion-button {
+    --box-shadow: none;
+    margin-left: 10px;
+  }
 
-    img {
-        border-radius: 50%;
-    }
+  img {
+    border-radius: 50%;
+  }
 }
+
+  .moon-icon {
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  }
+
+.text-green-500 {
+  color: #2DD55B; /* Dark mode color */
+}
+
+.text-green-700 {
+  color: #27AE60; /* Light mode color */
+}
+
+.lunes {
+  background-color: #27AE60;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-green-dark{
+  color: #000000;
+}
+
+.text-black {
+  color: black;
+}
+
+.border-white{
+  border: 1px solid white;
+}
+
+.border-black{
+  border: 1px solid black;
+}
+

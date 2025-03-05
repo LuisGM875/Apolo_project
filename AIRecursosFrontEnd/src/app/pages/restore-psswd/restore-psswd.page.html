@@ -5,10 +5,13 @@
 </ion-header> -->
 
 <!-- Contenido principal de la página, ocupará toda la pantalla -->
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" [ngClass]="{'dark-background': isDarkMode}">
 
   <div class="middle">
     <div class="box bg-white/20 rounded-2xl shadow-[0px_4px_32px_0px_rgba(0,0,0,0.25)] border border-black/0 backdrop-blur-2xl">
+      <div class="dark-mode-toggle">
+        <ion-toggle (ionChange)="toggleDarkMode()" [checked]="isDarkMode"></ion-toggle>
+      </div>
       <form #resetForm="ngForm" class="space-y-4">
         <ion-text color-shame="light" class="ion-text-center">
           <h1>{{'label.resetpsswd' | translate}}<br>{{'label.resetpsswd2' | translate}}</h1>

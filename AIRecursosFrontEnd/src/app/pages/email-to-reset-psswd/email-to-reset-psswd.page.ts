@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { DarkModeService } from 'src/app/services/dark-mode';
 
 @Component({
   selector: 'app-email-to-reset-psswd',
@@ -8,11 +9,19 @@ import { NavController } from '@ionic/angular';
 })
 export class EmailToResetPsswdPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController,private darkModeService: DarkModeService) { }
 
   email: string = '';
+  isDarkMode: boolean;
 
   ngOnInit() {
+    this.darkModeService.isDarkMode().subscribe((isDark) => {
+      this.isDarkMode = isDark;
+    });
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
   }
 
   goTologin() {

@@ -24,3 +24,7 @@ ion-content.background_content {
         }
     }
 }
+
+ion-content.dark-background {
+  --background: url(/assets/images/black-fondo.jpg) no-repeat center center / cover;
+}

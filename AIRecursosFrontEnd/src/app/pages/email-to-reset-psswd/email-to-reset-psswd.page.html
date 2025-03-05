@@ -4,18 +4,21 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" [ngClass]="{'dark-background': isDarkMode}">
   <div class="min-h-screen flex items-center justify-center">
   <div class="middle">
     <div class="box bg-white/20 rounded-2xl shadow-[0px_4px_32px_0px_rgba(0,0,0,0.25)] border border-black/0 backdrop-blur-2xl">
+      <div class="dark-mode-toggle">
+        <ion-icon name="moon" class="moon-icon" (click)="toggleDarkMode()" [ngClass]="{'text-green-700': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
+      </div>
       <form #EmailresetForm="ngForm">
-        <h2 class="text-white text-2xl font-bold text-center">¿Olvidaste la contraseña?</h2>
+        <h2 class="text-2xl font-bold text-center" [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}">¿Olvidaste la contraseña?</h2>
 
-        <p class="text-white text-base text-center mt-4">
+        <p class="text-base text-center mt-4" [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}">
           Ingresa El Correo Electrónico Registrado
         </p>
         <div class="text-center">
-          <div class="w-1/2 mx-auto mt-2 border-t-2 border-white"></div>
+          <div class="w-1/2 mx-auto mt-2 border-t-2" [ngClass]="{'border-white': isDarkMode, 'border-black': !isDarkMode}"></div>
         </div>
         <br>
 
@@ -24,13 +27,17 @@
           <input type="email" [(ngModel)]="email" class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white"
             placeholder="   Correo Electrónico"
             required>
-          <ion-icon slot="end" name="mail" class="absolute right-4 text-green-500"></ion-icon>
+          <ion-icon slot="end" name="mail" class="absolute right-4" [ngClass]="{'text-green-700': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
         </div>
         <br>
         <div class="flex justify-center space-x-4">
-          <ion-button class="w-32 h-12" style="--background: #252626; --color: white;" (click)="goTologin()"
-                      [disabled]="EmailresetForm.invalid">{{'label.send' | translate}}</ion-button>
-          <ion-button class="w-32 h-12" style="--background: #252626; --color: white;" (click)="onCancel()">{{'label.cancel' | translate}}</ion-button>
+          <button class="btn-central" (click)="goTologin()"
+                      [disabled]="EmailresetForm.invalid" [ngClass]="{'btn-central-dark': isDarkMode}">
+            {{'label.send' | translate}}
+          </button>
+          <button class="btn-central" (click)="onCancel()" [ngClass]="{'btn-central-dark': isDarkMode}">
+            {{'label.cancel' | translate}}
+          </button>
         </div>
       </form>
     </div>

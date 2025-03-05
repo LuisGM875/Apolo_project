@@ -1,6 +1,10 @@
 @import '@ionic/angular/css/ionic.bundle.css';
 
 ion-content {
+
+  &.dark-background {
+    --background: url(/assets/images/black-fondo.jpg) no-repeat center center / cover;
+  }
     --background: url(/assets/images/fondo.jpg) no-repeat center center / cover;
 
     .middle {
@@ -142,11 +146,19 @@ ion-content {
     }
 
 
-  .btn button {
-    background-color: black;
-    border-radius: 10px; /* Adjust the value as needed */
-    color: white; /* Optional: to make the text visible on black background */
+  .btn-central {
+    background-color: #27AE60; /* Light mode background */
+    border-radius: 10px;
+    color: #000000; /* Light mode text color */
     padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.btn-central-dark {
+      background-color: #000000; /* Dark mode background */
+      color: white; /* Dark mode text color */
+    }
   }
 
     .registerLogin-container {
@@ -169,4 +181,50 @@ ion-content {
         font-weight: bold;
         margin-left: 5px;
     }
+
+  .text-green-500 {
+    color: #27AE60; /* Dark mode color */
+  }
+
+  .text-green-700 {
+    color: #000000; /* Light mode color */
+  }
+
+  .lunes {
+    background-color: #27AE60;
+  }
+
+  .text-white {
+    color: white;
+  }
+
+  .text-green-dark{
+    color: #000000;
+  }
+
+  .text-black {
+    color: black;
+  }
+
+  .border-white{
+    border: 1px solid white;
+  }
+
+  .border-black{
+    border: 1px solid black;
+  }
+}
+
+ion-content.dark-background {
+  --background: url(/assets/images/black-fondo.jpg) no-repeat center center / cover;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: end;
+  justify-content: center; /* Center the icon if needed */
+
+  .moon-icon { /* Adjust the color as needed */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  }
 }

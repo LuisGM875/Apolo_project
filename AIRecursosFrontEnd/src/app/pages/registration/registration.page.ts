@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, input, Renderer2, OnInit} from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
 import { ProfilePhotoOptionComponent } from '../components/profile-photo-option/profile-photo-option.component';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { DarkModeService } from 'src/app/services/dark-mode';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.page.html',
   styleUrls: ['./registration.page.scss'],
 })
-export class RegistrationPage {
+export class RegistrationPage implements OnInit {
   photo: string | null = null;
 
   registration = {
@@ -17,15 +18,16 @@ export class RegistrationPage {
     ReasonSocial: '',
     RFC: '',
     REPSEf: ''
-    
+
   };
 
   newPassword: string = '';
   confirmPassword: string = '';
   showPassword: boolean = true;
   passwordMismatch: boolean = false;
+  isDarkMode: boolean;
 
-  constructor(private modalController: ModalController, private navCtrl: NavController) { }
+  constructor(private modalController: ModalController, private navCtrl: NavController, private darkModeService: DarkModeService) { }
 
   async openOptionSelection() {
     const modal = await this.modalController.create({
@@ -45,6 +47,16 @@ export class RegistrationPage {
 
     return await modal.present();
 
+  }
+
+  ngOnInit() {
+    this.darkModeService.isDarkMode().subscribe((isDark) => {
+      this.isDarkMode = isDark;
+    });
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
   }
 
   async takePicture(type) {

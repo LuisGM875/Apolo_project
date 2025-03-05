@@ -1,6 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthGoogleServiceService } from 'src/app/services/auth-google-service.service';
+import { DarkModeService } from 'src/app/services/dark-mode';
+
 
 @Component({
   selector: 'app-login',
@@ -15,11 +17,19 @@ export class LoginPage implements OnInit {
   }
 
   showPassword: boolean = true;
+  isDarkMode: boolean;
 
-  constructor(private navCtrl: NavController, private authGoogleService: AuthGoogleServiceService) { }
+  constructor(private navCtrl: NavController, private authGoogleService: AuthGoogleServiceService,private darkModeService: DarkModeService) { }
 
   ngOnInit() {
+    this.darkModeService.isDarkMode().subscribe((isDark) => {
+      this.isDarkMode = isDark;
+    });
     this.checkAuth();
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
   }
 
   checkAuth() {
@@ -29,7 +39,7 @@ export class LoginPage implements OnInit {
   }
 
   logAuth() {
-    //aquí se incluirá la lógica para iniciar sesión con email y contraseña 
+    //aquí se incluirá la lógica para iniciar sesión con email y contraseña
     // Por ejemplo:
     // if (this.login.email && this.login.password) {
     //   try {

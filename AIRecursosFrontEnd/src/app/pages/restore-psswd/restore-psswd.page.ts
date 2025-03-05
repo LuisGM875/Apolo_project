@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-
+import { DarkModeService } from 'src/app/services/dark-mode';
 
 @Component({
   selector: 'app-restore-psswd',
@@ -13,9 +13,17 @@ export class RestorePsswdPage implements OnInit {
   confirmPassword: string = '';
   showPassword: boolean = true;
   passwordMismatch: boolean = false;
+  isDarkMode: boolean;
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, private darkModeService: DarkModeService) { }
   ngOnInit() {
+    this.darkModeService.isDarkMode().subscribe((isDark) => {
+      this.isDarkMode = isDark;
+    });
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
   }
 
   togglePasswordVisibility() {
@@ -33,7 +41,7 @@ export class RestorePsswdPage implements OnInit {
     // Navegar de vuelta al login o mostrar un mensaje de éxito
   }
 
-  //lógica para cancelar y volver atrás 
+  //lógica para cancelar y volver atrás
   onCancel() {
     this.navCtrl.navigateForward('/login');
 

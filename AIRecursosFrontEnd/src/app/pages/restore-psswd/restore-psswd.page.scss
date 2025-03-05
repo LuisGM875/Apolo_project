@@ -1,6 +1,9 @@
 @import '@ionic/angular/css/ionic.bundle.css';
 
 ion-content {
+  &.dark-background {
+    --background: url(/assets/images/black-fondo.jpg) no-repeat center center / cover;
+  }
     --background: url(/assets/images/fondo.jpg) no-repeat center center / cover;
 
     .middle {
@@ -90,7 +93,7 @@ ion-content {
             //     font-size: 24px; /* Aumenta el tamaño del ícono (ajusta según tus necesidades) */
             //     margin-right: 8px; /* Espacio entre el ícono y el texto */
             //   }
-              
+
         }
     }
 }

@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" [ngClass]="{'dark-background': isDarkMode}">
 
   <!-- <ion-header [translucent]="true">
   <ion-toolbar>
@@ -15,40 +15,43 @@
   <div class="min-h-screen flex items-center justify-center">
     <div class="middle">
       <div class="box bg-white/20 rounded-2xl shadow-[0px_4px_32px_0px_rgba(0,0,0,0.25)] backdrop-blur-2xl">
+        <div class="dark-mode-toggle">
+          <ion-icon name="moon" class="moon-icon" (click)="toggleDarkMode()" [ngClass]="{'text-green-700': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
+        </div>
         <form #loginForm="ngForm" class="space-y-2">
           <div class="text-center text-gray-700">
-            <h1 class="text-2xl font-bold text-white">{{'label.welcome' | translate}}</h1>
+            <h1 class="text-2xl font-bold" [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}">{{'label.welcome' | translate}}</h1>
           </div>
           <div class="text-center">
-            <div class="w-1/2 mx-auto mt-2 border-t-2 border-white"></div>
+            <div class="w-1/2 mx-auto mt-2 border-t-2" [ngClass]="{'border-white': isDarkMode, 'border-black': !isDarkMode}"></div>
           </div>
 
           <div class="">
             <div class="relative flex items-center py-2">
               <input type="email" [placeholder]="    'label.email' | translate " name="email" #email="ngModel"
                      [(ngModel)]="login.email" required class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white">
-              <ion-icon name="mail" class="absolute right-2 text-green-500"></ion-icon>
+              <ion-icon name="mail" class="absolute right-2" [ngClass]="{'text-green-700': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
             </div>
 
             <div class="relative flex items-center py-2">
               <input [type]="showPassword ? 'password' : 'text'" [placeholder]="    'label.password' | translate"
                      name="password" #password="ngModel" [(ngModel)]="login.password" required class="w-72 h-11 bg-black/50 rounded-lg border border-green-500 backdrop-blur-lg pr-10 text-white">
               <ion-icon slot="end" [name]="showPassword ? 'lock-closed' : 'lock-open'"
-                        (click)="togglePasswordVisibility()" class="absolute right-2 text-green-500"></ion-icon>
+                        (click)="togglePasswordVisibility()" class="absolute right-2" [ngClass]="{'text-green-700': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
             </div>
           </div>
 
-          <div class="btn mt-1">
+          <div class="mt-1 flex justify-center">
             <button
-              class="w-72 h-11 bg-green-950 text-white text-sm font-normal rounded-full flex items-center justify-center"
+              class="btn-central rounded-full "
               (click)="goToHome()"
-              [disabled]="loginForm.invalid">
+              [disabled]="loginForm.invalid" [ngClass]="{'btn-central-dark': isDarkMode}">
               {{'label.enter' | translate}}
             </button>
           </div>
 
           <div class="forget-password-container mt-4">
-            <button class="text-black" (click)="goToForget()">
+            <button class="text-black" (click)="goToForget()" >
               {{'label.recoverpsswd' | translate}}
             </button>
           </div>
@@ -67,7 +70,7 @@
 
         <div class=" mt-4">
           <ion-button fill="clear" class="register-button" (click)="regis()">
-            {{'label.registration1' | translate}} <span class="text-white">{{'label.registration2' | translate}}</span>
+            {{'label.registration1' | translate}} <span [ngClass]="{'text-white': isDarkMode, 'text-green-dark': !isDarkMode}">{{'label.registration2' | translate}}</span>
           </ion-button>
         </div>
 
