@@ -31,7 +31,7 @@ export class TabsPage implements OnInit {
 
   async onTabChange() {
     const toast = await this.toastController.create({
-      message: 'Cambiando tab',
+      message: 'Cambiando de Seccion',
       duration: 2000,
       position: 'bottom',
       color: 'dark',
