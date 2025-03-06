@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from 'src/app/services/dark-mode';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -10,7 +11,7 @@ export class TabsPage implements OnInit {
 
   isDarkMode: boolean;
 
-  constructor(private darkModeService: DarkModeService) {}
+  constructor(private darkModeService: DarkModeService, private toastController: ToastController) {}
   ngOnInit() {
     this.darkModeService.isDarkMode().subscribe((isDark) => {
       this.isDarkMode = isDark;
@@ -19,6 +20,19 @@ export class TabsPage implements OnInit {
 
   toggleDarkMode() {
     this.darkModeService.toggleDarkMode();
+  }
+
+  showToast = false;
+
+  async onTabChange() {
+    const toast = await this.toastController.create({
+      message: 'Cambiando de Sección',
+      duration: 2000,
+      position: 'bottom',
+      color: 'dark',
+    });
+
+    await toast.present();
   }
 }
 

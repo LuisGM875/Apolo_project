@@ -9,6 +9,7 @@ import { DarkModeService } from 'src/app/services/dark-mode';
 })
 export class HeaderComponent  implements OnInit {
   isDarkMode: boolean;
+  isMoonIconSelected: boolean = false;
   constructor( private navCtrl: NavController, private darkModeService: DarkModeService ) { }
 
 
@@ -24,6 +25,7 @@ export class HeaderComponent  implements OnInit {
 
   toggleDarkMode() {
     this.darkModeService.toggleDarkMode();
+    this.isMoonIconSelected = !this.isMoonIconSelected;
   }
 
 }

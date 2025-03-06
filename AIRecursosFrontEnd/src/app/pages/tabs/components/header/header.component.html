@@ -1,8 +1,6 @@
 <ion-header class="header_nav">
   <ion-searchbar class="header_searchbar" show-clear-button="focus" placeholder="Buscar"></ion-searchbar>
-  <ion-button color="none" shape="round">
-    <ion-icon slot="icon-only" name="options" [ngClass]="{'text-white': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
-  </ion-button>
+
   <ion-button color="none" shape="round" (click)="noti()">
     <ion-icon slot="icon-only" name="notifications" [ngClass]="{'text-white': isDarkMode, 'text-green-500': !isDarkMode}"></ion-icon>
   </ion-button>

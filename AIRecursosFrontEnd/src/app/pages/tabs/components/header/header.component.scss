@@ -14,6 +14,20 @@
   ion-button {
     --box-shadow: none;
     margin-left: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.1);
+      transform: scale(0.95);
+    }
+
+    ion-icon {
+      transition: color 0.2s ease;
+
+      &:active {
+        color: #3880ff;
+      }
+    }
   }
 
   img {
@@ -21,16 +35,22 @@
   }
 }
 
-  .moon-icon {
-    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+.moon-icon {
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  transition: background-color 0.2s ease;
+  font-size: 10px;
+
+  &.selected {
+    background-color: rgba(0, 0, 0, 0.1);
   }
+}
 
 .text-green-500 {
-  color: #2DD55B; /* Dark mode color */
+  color: #00FF4CFF; /* Dark mode color */
 }
 
 .text-green-700 {
-  color: #27AE60; /* Light mode color */
+  color: #00FF4CFF; /* Light mode color */
 }
 
 .lunes {
