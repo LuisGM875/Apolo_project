@@ -3,7 +3,7 @@ import { NavController } from '@ionic/angular';
 import { AuthGoogleServiceService } from 'src/app/services/auth-google-service.service';
 import { DarkModeService } from 'src/app/services/dark-mode';
 
-
+// Hola
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
