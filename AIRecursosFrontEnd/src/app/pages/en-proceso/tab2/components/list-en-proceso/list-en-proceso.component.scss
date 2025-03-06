@@ -1,9 +1,34 @@
 ion-toolbar {
-    --background: transparent;
-    ion-button {
-        --background: rgba(255, 255, 255, 0.3);
-        margin: 0px 10px 10px 10px;
-        --border-radius: 10px;
-        text-transform: capitalize;
-    }
+  --background: transparent;
+}
+
+.centered-card {
+  margin: 0 auto; /* Center the card */
+  --background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px; /* Rounded borders */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px; /* Optional: limit the card width */
+}
+
+ion-button {
+  margin: 0px 10px 10px 10px;
+  --border-radius: 10px;
+  text-transform: capitalize;
+}
+
+.back-green-500 {
+  background-color: #A59B9B; /* Dark mode color */
+}
+
+.back-green-700 {
+  background-color: #337043; /* Light mode color */
+}
+
+.text-white {
+  color: white;
+}
+
+.center {
+  text-align: center;
 }

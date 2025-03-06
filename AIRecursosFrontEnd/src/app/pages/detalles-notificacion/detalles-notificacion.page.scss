@@ -1,41 +1,74 @@
 ion-content {
-    --background: #698C7B;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
 
-    
+  &.dark-background {
+    --background: url(/assets/images/black-fondo.jpg) no-repeat center center / cover;
+  }
+
+  --background: url(/assets/images/fondo.jpg) no-repeat center center / cover;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align the icon to the right */
+  padding-right: 40px; /* Add padding to the right */
+}
+
+.moon-icon {
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+}
+
+.text-green-500 {
+  color: #e4e4e4; /* Dark mode color */
+}
+
+.text-green-700 {
+  color: #000000;; /* Light mode color */
+}
+
+.text-icon{
+  color: #337043;;
+}
+
+.back-green-500 {
+  background-color: #3e3d3d; /* Dark mode color */
+}
+
+.back-green-700 {
+  background-color: #337043; /* Light mode color */
 }
 
 .principal {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 60px 0px 0px 0px;
-   
+
 }
-.inicio{
-    
-    color: white;  
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    
-    
+
+.inicio {
+  display: flex;
+  justify-content: space-between; /* Space between left and right sections */
+  align-items: center;
+  padding-top: 20px; /* Add padding to the top */
 }
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between the back button and the title */
+}
+
+
+
 .inicio ion-button{
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 h1 {
-    font-size: 1.8rem;
-    color: #ffffff;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -44,12 +77,11 @@ h1 {
     width: 90%;
     height: 100%;
     max-width: 400px;
-    background-color: #337043;
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     gap: 15px;
-   
+
 }
 
 .logo-container {
@@ -68,14 +100,12 @@ h1 {
 }
 
 h2 {
-    font-size: 1.1rem;
     font-weight: bold;
     color: #ffffff;
     margin-bottom: 15px;
 }
 
 p {
-    font-size: 12px;;
     color: #ffffff;
     margin-bottom: 5px;
 }
@@ -114,8 +144,17 @@ ion-button.accept {
 }
 
 .inicio ion-icon{
-    color: white;
-    font-size: 35px;
-    
+    font-size: 25px;
+
+}
+
+.toast-red {
+  --background: #dc3545;
+  color: white;
+}
+
+.toast-green {
+  --background: #28a745;
+  color: white;
 }
 

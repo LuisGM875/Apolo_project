@@ -1,3 +1,12 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+:root {
+  --global-font-size: 1em;
+}
+
+body {
+  font-size: var(--global-font-size);
+}

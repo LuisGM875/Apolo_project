@@ -7,6 +7,7 @@ import { Select, Store } from '@ngxs/store';
 import { DeleteRecurso, GetRecursos, UpdateRecurso } from 'src/app/states/recursos/recursos.actions';
 import { RecursosState } from 'src/app/states/recursos/recursos.state';
 import { Observable } from 'rxjs';
+import {DarkModeService} from "../../../../../services/dark-mode";
 
 @Component({
   selector: 'app-list-recursos',
@@ -22,19 +23,28 @@ export class ListRecursosComponent implements OnInit {
   recursoSelected: Recurso;
   showForm: boolean;
   edit: boolean;
+  isDarkMode: boolean;
 
   constructor(
     private navParams: NavParams,
     private navController: NavController,
     private alertService: AlertService,
     private store: Store,
+    private darkModeService: DarkModeService
   ) {
   }
 
   ngOnInit() {
     this.restartV();
     this.store.dispatch(new GetRecursos());
-    this.getRecursos();  
+    this.getRecursos();
+    this.darkModeService.isDarkMode().subscribe((isDark) => {
+      this.isDarkMode = isDark;
+    });
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
   }
 
   async createRecurso() {
@@ -52,7 +62,7 @@ export class ListRecursosComponent implements OnInit {
         const success = this.store.selectSnapshot(RecursosState.success);
         if (success) {
           this.recursos = this.store.selectSnapshot(RecursosState.recursos) as Recurso[];
-          
+
         }
       },
       error: async () => {

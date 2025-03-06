@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActionSheetController, NavController, NavParams } from '@ionic/angular';
+import { ActionSheetController, NavController, NavParams, AlertController, ToastController } from '@ionic/angular';
 import { Recurso } from 'src/app/models/recurso';
 import { Tecnologia } from 'src/app/models/tecnologia';
 import { AlertService } from 'src/app/services/alert.service';
@@ -18,6 +18,7 @@ import { TecnologiasState } from 'src/app/states/tecnologias/tecnologias.state';
 import { CreateEvaluacion } from 'src/app/states/evaluaciones/evaluaciones.actions';
 import { Evaluacion } from 'src/app/models/evaluacion';
 import { EvaluacionesState } from 'src/app/states/evaluaciones/evaluaciones.state';
+import { DarkModeService } from "../../../../../services/dark-mode";
 
 @Component({
   selector: 'app-form-recurso',
@@ -28,6 +29,7 @@ export class FormRecursoPage implements OnInit {
 
   @Select(TecnologiasState.tecnologias)
   tecnologias$: Observable<Tecnologia[]>
+  isDarkMode: boolean;
 
   tecnologiass: String[] = ["Java", "Spring Framework", "MySQL", "Angular", "PostgreSQL", "Ruby"]
 
@@ -49,6 +51,9 @@ export class FormRecursoPage implements OnInit {
     private formBuilder: FormBuilder,
     private alertService: AlertService,
     private store: Store,
+    private darkModeService: DarkModeService,
+    private alertController: AlertController,
+    private toastController: ToastController
   ) {
     this.restartV(); // Reiniciar las variables
   }
@@ -58,6 +63,15 @@ export class FormRecursoPage implements OnInit {
     this.getTecnologias(); // LLamada a metodo para obtener las tecnologias
     this.initDropDownSettings();
     this.initRecurso(); // LLamada a metodo para inicializar el formulario
+
+    this.darkModeService.isDarkMode().subscribe((isDark) => {
+      this.isDarkMode = isDark;
+    });
+
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
   }
 
   initDropDownSettings() {
@@ -78,7 +92,7 @@ export class FormRecursoPage implements OnInit {
     }
   }
 
-  async initRecurso() { // Inicializar el formulario reactivo 
+  async initRecurso() { // Inicializar el formulario reactivo
     this.recurso = this.navParam.data['recurso'];
     if (!this.recurso) {
       this.recurso = new Recurso;
@@ -138,11 +152,15 @@ export class FormRecursoPage implements OnInit {
         if (success) {
           this.recurso = this.store.selectSnapshot(RecursosState.recurso);
           this.createEvaluacion(this.recurso);
+          this.playSound('assets/sounds/success.mp3');
+          await this.presentAlert('Recurso creado correctamente');
         }
       }, error: async () => {
         await this.alertService.alertError(
           'Error al crear el recurso'
         );
+        this.playSound('assets/sounds/error.mp3');
+        await this.presentAlert('Error al crear el recurso');
       }
     });
   }
@@ -174,11 +192,15 @@ export class FormRecursoPage implements OnInit {
                     self.onCloseForm();
                     self.store.dispatch(new GetRecursos());
                     self.onCloseForm();
+                    self.playSound('assets/sounds/success.mp3');
+                    await self.presentAlert('Recurso actualizado correctamente');
                   }
                 }, error: async () => {
                   await self.alertService.alertError(
                     'Error al actualizar el recurso'
                   );
+                  self.playSound('assets/sounds/error.mp3');
+                  await self.presentAlert('Error al actualizar el recurso');
                 }
               });
             }
@@ -186,10 +208,33 @@ export class FormRecursoPage implements OnInit {
             await self.alertService.alertError(
               'Error al actualizar el recurso'
             );
+            self.playSound('assets/sounds/error.mp3');
+            await self.presentAlert('Error al actualizar el recurso');
           }
         });
       }
     );
+  }
+
+  playSound(url: string) {
+    const audio = new Audio(url);
+    audio.play().catch(error => {
+      console.error('Error playing sound:', error);
+    });
+  }
+
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      header: 'Confirmación',
+      message: message,
+      buttons: [{
+        text: 'OK',
+        handler: () => {
+          this.onCloseForm();
+        }
+      }]
+    });
+    await alert.present();
   }
 
   createEvaluacion(recurso: Recurso) {

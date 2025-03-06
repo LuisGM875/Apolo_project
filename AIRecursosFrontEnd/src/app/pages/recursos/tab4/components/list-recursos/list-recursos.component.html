@@ -1,63 +1,14 @@
-<ion-item class="ion-item-card-recurso" lines="none">
+<ion-item class="ion-item-card-recurso no-background" lines="none">
   <ion-button fill="none" slot="end" (click)="createRecurso()">
-    <ion-icon size="large" color="success" name="add-circle"></ion-icon>
+    <ion-icon size="large" [ngClass]="{'text-white': isDarkMode, 'text-green-500': !isDarkMode}" name="add-circle"></ion-icon>
   </ion-button>
 </ion-item>
-<ng-content *ngFor="let recurso of recursos">
-  <ion-card class="ion-card-recurso" *ngIf="!recurso.ocultar">
-    <ion-card-header>
-      <ion-label class="empresa-title">{{recurso.empresa.nombre}}</ion-label>
-      <ion-thumbnail>
-        <img [alt]="recurso.empresa" src="./../../../../assets/Kohmi.jpg" />
-      </ion-thumbnail>
-      <ion-card-title>
-        <ion-label>{{recurso.nombre}} {{recurso.primerApellido}} {{recurso.segundoApellido}} -
-          {{recurso.puesto}}</ion-label>
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item class="ion-item-card-recurso" lines="none">
-        <ion-grid>
-          <ion-col>
-            <ion-row>
-              <ion-text>Principales Tecnologias:</ion-text>
-            </ion-row>
-            <ion-row>
-              <li *ngFor="let tecnologia of recurso.tecnologias">{{tecnologia.nombre}}</li>
-            </ion-row>
-          </ion-col>
-        </ion-grid>
-      </ion-item>
-      <ion-item class="ion-item-card-recurso" lines="none">
-        <ion-grid>
-          <ion-col>
-            <ion-row>
-              <ion-text>Tarifa: </ion-text>
-            </ion-row>
-            <ion-row>
-              {{recurso.tarifa}}
-            </ion-row>
-            <ion-row>
-              <ion-icon [color]="recurso.estatus ? 'success' : 'warning'" name="briefcase"></ion-icon>
-            </ion-row>
-          </ion-col>
-        </ion-grid>
-      </ion-item>
-    </ion-card-content>
-    <div class="buttons-card">
-      <ion-item class="ion-item-card-recurso" lines="none">
-        <ion-button (click)="ocultarRecurso(recurso)" fill="none">
-          <ion-icon name="eye-off"></ion-icon> Ocultar Oferta
-        </ion-button>
-      </ion-item>
-      <ion-item class="ion-item-card-recurso" lines="none">
-        <ion-button (click)="updateRecurso(recurso)" fill="none">
-          <ion-icon color="warning" name="create"></ion-icon>
-        </ion-button>
-        <ion-button (click)="deleteRecurso(recurso.idRecurso)" fill="none">
-          <ion-icon color="danger" name="trash-bin"></ion-icon>
-        </ion-button>
-      </ion-item>
-    </div>
-  </ion-card>
-</ng-content>
+<ion-card class="centered-card" [ngClass]="{'back-green-500': isDarkMode, 'back-green-700': !isDarkMode}">
+  <ion-card-content >
+    <h1 style="text-align: center;" [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}">Almacen</h1>
+    <p [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}">Empresa</p>
+    <p [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}">Por una tarifa de <strong>$12400</strong></p>
+    <p [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}">Con estatus <strong>Activo</strong></p>
+    <p [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}">Con la modalidad <strong>Presencial</strong></p>
+  </ion-card-content>
+</ion-card>

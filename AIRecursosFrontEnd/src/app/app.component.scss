@@ -1,0 +1,115 @@
+/* Aplicar tamaño dinámico a todos los textos */
+:root {
+  --app-font-size: 16px; /* Tamaño por defecto */
+}
+
+/* Estilos generales */
+* {
+  font-size: var(--app-font-size) !important;
+}
+
+/* Aplicar tamaño a elementos específicos */
+h1, h2, h3, h4, h5, h6, p, span, label, button, input, ion-label, ion-button, ion-title {
+  font-size: var(--app-font-size) !important;
+}
+
+/* Ajustar también los placeholders */
+input::placeholder, textarea::placeholder {
+  font-size: var(--app-font-size) !important;
+}
+
+/* Asegurar que los botones hereden el tamaño de fuente */
+ion-button {
+  font-size: var(--app-font-size) !important;
+}
+
+/* Asegurar que los textos dentro de ion-button también se ajusten */
+ion-button span {
+  font-size: var(--app-font-size) !important;
+}
+
+
+/* Ajustar el padding de los inputs para evitar solapamientos */
+input {
+  padding-right: 30px !important; /* Espacio suficiente para el icono */
+}
+
+
+
+.dynamic-font-size * {
+  font-size: inherit !important;
+}
+
+.dynamic-font-size {
+  font-size: var(--app-font-size, 16px) !important;
+}
+
+ion-card * {
+  font-size: var(--app-font-size, 16px) !important;
+}
+
+ion-item ion-label,
+ion-item ion-input,
+ion-item ion-textarea {
+  font-size: var(--app-font-size, 16px) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-size: var(--app-font-size, 16px) !important;
+}
+
+
+.transparent-toolbar {
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+#main-container {
+  margin-top: 56px; /* Adjust this value based on the height of your toolbar */
+}
+
+ion-header {
+  height: 50px; /* Ajusta la altura del header para no chocar con los botones */
+  z-index: 999;
+  position: relative;
+  background-color: #293133;
+}
+
+ion-content {
+  margin-top: 60px; /* Empuja el contenido hacia abajo para evitar superposición */
+}
+
+ion-button {
+  background: transparent;
+  color: white !important;
+}
+
+ion-toolbar {
+  --background: #293133 !important; /* Fondo completamente negro */
+  --color: white !important; /* Color del texto en blanco */
+  border-bottom: 1px solid #293133; /* Evita que haya líneas separadoras */
+}
+
+.font-size-container {
+  background: #293133 !important; /* Fondo negro */
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  gap: 5px;
+  border-bottom-left-radius: 10px;
+}
+
+.font-size-buttons ion-button {
+  color: white !important;
+  --background: transparent !important;
+  --box-shadow: none !important;
+  --ripple-color: transparent !important;
+  font-weight: bold;
+}
+
+

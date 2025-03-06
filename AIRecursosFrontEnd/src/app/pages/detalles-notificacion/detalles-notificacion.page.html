@@ -1,14 +1,23 @@
-<ion-content [fullscreen]="true">
-
+<ion-content [fullscreen]="true" [ngClass]="{'dark-background': isDarkMode}">
   <div class="inicio">
-    <ion-button fill="clear" size="small" class="boton-agregar" (click)="back()">
-      <ion-icon name="arrow-back-outline"></ion-icon>
-    </ion-button>     
-    <h1>Notificaciones</h1>
+    <div class="left-section">
+      <ion-button fill="clear" size="small" class="boton-agregar" (click)="back()">
+        <ion-icon name="arrow-back-outline" [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}"></ion-icon>
+      </ion-button>
+      <h1 [ngClass]="{'text-white': isDarkMode, 'text-black': !isDarkMode}">Notificaciones</h1>
+    </div>
+    <div class="dark-mode-toggle">
+      <ion-icon name="moon" class="moon-icon" (click)="toggleDarkMode()" [ngClass]="{'text-green-500': isDarkMode, 'text-icon': !isDarkMode}"></ion-icon>
+      <ion-button fill="clear" size="small" (click)="toggleSound()">
+        <ion-icon name="volume-mute" *ngIf="!isSoundEnabled" [ngClass]="{'text-green-500': isDarkMode, 'text-icon': !isDarkMode}"></ion-icon>
+        <ion-icon name="volume-high" *ngIf="isSoundEnabled" [ngClass]="{'text-green-500': isDarkMode, 'text-icon': !isDarkMode}"></ion-icon>
+      </ion-button>
+    </div>
   </div>
-  
+
   <div class="principal">
-    <div class="notificacion-container">
+
+    <div class="notificacion-container" [ngClass]="{'back-green-500': isDarkMode, 'back-green-700': !isDarkMode}">
       <div class="logo-container">
         <img src="./../../../../assets/Kohmi.jpg" alt="Logo Empresa">
       </div>
@@ -21,12 +30,12 @@
         <p >En un horario de <strong>{{ notificacion.horario }}</strong></p>
         <p>Con una fecha de inicio <strong>{{ notificacion.fechaInicio }}</strong> y una fecha de terminación <strong>{{ notificacion.fechaFin }}</strong></p>
         <p>Con la modalidad <strong>{{ notificacion.modalidad }}</strong></p>
-  
+
       </div>
-     
+
       <div class="botones-container">
-        <ion-button class="deny">DENEGAR</ion-button>
-        <ion-button class="accept">ACEPTAR</ion-button>
+        <ion-button class="deny" (click)="deny()">DENEGAR</ion-button>
+        <ion-button class="accept" (click)="accept()">ACEPTAR</ion-button>
       </div>
     </div>
   </div>

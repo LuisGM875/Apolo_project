@@ -1,3 +1,21 @@
 <ion-app *ngIf="load">
-  <ion-router-outlet></ion-router-outlet>
+  <ion-header>
+    <ion-toolbar>
+      <div class="font-size-container">
+        <div class="font-size-buttons">
+          <ion-button class="animated-button" (click)="setFontSize(14)">-A</ion-button>
+          <ion-button class="animated-button" (click)="setFontSize(16)">A</ion-button>
+          <ion-button class="animated-button" (click)="setFontSize(18)">+A</ion-button>
+          <ion-button class="animated-button" (click)="startVoiceCommands()">
+            <ion-icon name="mic"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div id="main-container">
+      <ion-router-outlet></ion-router-outlet>
+    </div>
+  </ion-content>
 </ion-app>

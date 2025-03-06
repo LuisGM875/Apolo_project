@@ -10,7 +10,7 @@
   <div class="middle">
     <div class="box bg-white/20 rounded-2xl shadow-[0px_4px_32px_0px_rgba(0,0,0,0.25)] border border-black/0 backdrop-blur-2xl">
       <div class="dark-mode-toggle">
-        <ion-toggle (ionChange)="toggleDarkMode()" [checked]="isDarkMode"></ion-toggle>
+        <ion-icon name="moon" class="moon-icon" (click)="toggleDarkMode()" [ngClass]="{'text-black': isDarkMode, 'text-icon': !isDarkMode}"></ion-icon>
       </div>
       <form #resetForm="ngForm" class="space-y-4">
         <ion-text color-shame="light" class="ion-text-center">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import {DarkModeService} from "../../services/dark-mode";
 
 @Component({
   selector: 'app-notificaciones',
@@ -7,6 +8,8 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./notificaciones.page.scss'],
 })
 export class NotificacionesPage implements OnInit {
+
+  isDarkMode: boolean;
 
   notificaciones = [
     {
@@ -90,11 +93,18 @@ export class NotificacionesPage implements OnInit {
   isCalendarVisible: boolean = false;
   selectedDate: Date | undefined = undefined;
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, private darkModeService: DarkModeService) { }
 
   ngOnInit() {
     this.hoy = new Date();
     this.categorizarNotificaciones(this.notificaciones);
+    this.darkModeService.isDarkMode().subscribe((isDark) => {
+      this.isDarkMode = isDark;
+    });
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
   }
 
   toggleCalendar() {
@@ -139,7 +149,7 @@ export class NotificacionesPage implements OnInit {
 
   resetFilter() {
     this.selectedDate = undefined;
-    this.categorizarNotificaciones(this.notificaciones); 
+    this.categorizarNotificaciones(this.notificaciones);
   }
 
   verDetalles(notificacionId: number) {

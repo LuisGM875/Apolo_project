@@ -180,3 +180,20 @@ ion-content.background-tab {
 .bg-bacground {
   background-color: #293232;
 }
+
+/* Aplicar tamaño de fuente dinámico a los formularios */
+ion-input,
+ion-textarea,
+ion-select,
+ion-label,
+input,
+textarea,
+select {
+  font-size: var(--app-font-size, 16px) !important;
+}
+
+
+
+
+
+

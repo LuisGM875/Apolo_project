@@ -1,19 +1,18 @@
-<ion-content [fullscreen]="true">
-  <div>
-    <ion-item class="ion-item-card-recurso" lines="none">
-      <ion-button (click)="onCloseForm()" fill="none">
-        <ion-icon size="large" name="arrow-back-outline"></ion-icon>
-      </ion-button>
-    </ion-item>
+<ion-content [fullscreen]="true" [ngClass]="{'dark-background': isDarkMode}">
 
-    <ion-item class="ion-item-card-recurso" lines="none">
-      <ion-text>
-        Ofertar Recurso
-      </ion-text>
-    </ion-item>
+  <div class="inicio">
+    <div class="left-section">
+      <ion-button fill="clear" size="small" class="boton-agregar" (click)="onCloseForm()">
+        <ion-icon name="arrow-back-outline" [ngClass]="{'text-green-500': isDarkMode, 'text-green-700': !isDarkMode}"></ion-icon>
+      </ion-button>
+      <h1 [ngClass]="{'text-green-500': isDarkMode, 'text-green-700': !isDarkMode}">Ofertar Recurso</h1>
+    </div>
+    <div class="dark-mode-toggle">
+      <ion-icon name="moon" class="moon-icon" (click)="toggleDarkMode()" [ngClass]="{'text-green-500': isDarkMode, 'text-green-700': !isDarkMode}"></ion-icon>
+    </div>
   </div>
 
-  <form class="ion-padding ion-margin" [formGroup]="formRecurso" (ngSubmit)="createUpdateRecurso()">
+  <form class="ion-padding ion-margin" [formGroup]="formRecurso" (ngSubmit)="createUpdateRecurso()" [ngClass]="{'back-green-500': isDarkMode, 'back-green-700': !isDarkMode}">
 
     <input formControlName="idRecurso" name="idRecurso" type="hidden">
 
@@ -93,7 +92,7 @@
       <ion-label>{{recurso.archivo.nombre}}</ion-label>
     </ion-button>
 
-    <ion-button type="submit" color="success">Confirmar</ion-button>
+    <ion-button type="submit" [ngClass]="{'dark-mode-button': isDarkMode, 'light-mode-button': !isDarkMode}">Confirmar</ion-button>
 
   </form>
 </ion-content>

@@ -2,11 +2,24 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button expand="block">Solicitados</ion-button>
+        <ion-button expand="block" (click)="onSolicitadosClick()">Solicitados</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button expand="block">Demandados</ion-button>
+        <ion-button expand="block" (click)="onDemandadosClick()">Demandados</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-toolbar>
+
+<div *ngIf="showSolicitadosMessage" class="center">
+  <p class="text-black">No hay solicitados.</p>
+</div>
+
+<ion-card *ngIf="showDemandadosCard" class="centered-card" [ngClass]="{'back-green-500': isDarkMode, 'back-green-700': !isDarkMode}">
+  <ion-card-content>
+    <h2 style="text-align: center;" class="text-white">Empleador Egresado</h2>
+    <p class="text-white">Nombre: <strong>Ercik</strong></p>
+    <p class="text-white">Edad: <strong>21</strong></p>
+    <p class="text-white">Modalidad <strong>Presencial</strong></p>
+  </ion-card-content>
+</ion-card>

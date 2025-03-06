@@ -1,20 +1,31 @@
 ion-content {
-  --background: url(/assets/background_recursos_1.jpg) no-repeat center center / cover;
+
+  &.dark-background {
+    --background: url(/assets/images/black-fondo.jpg) no-repeat center center / cover;
   }
+
+  --background: url(/assets/images/fondo.jpg) no-repeat center center / cover;
+}
+
+.notification-card {
+  --background: #27A25C; /* Default color */
+}
+
+.dark-background .notification-card {
+  --background: #808080; /* Gray color for dark mode */
+}
 
 ion-title {
     color: white; /* Color del título */
   }
 
   ion-text h2 {
-    color: #000000;
     margin-left: 16px;
     margin-top: 20px;
-    font-size: 18px;
   }
 
   ion-card {
-    --background: #6A8C7B;
+    --background: #27A25C;
     border-radius: 10px;
     margin-bottom: 12px;
     padding: 15px;
@@ -31,7 +42,6 @@ ion-title {
   }
   ion-label p{
     color: white;
-    font-size: 12px;
 
   }
 
@@ -46,7 +56,6 @@ ion-title {
     position: absolute;
     top: 0px;
     right: 0px;
-    font-size: 14px;
     color: #000;
   }
   .inicio{
@@ -71,18 +80,39 @@ ion-title {
     z-index: 10;
     padding: 10px;
     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-    background-color: none;
     width: 100%;
     height: 20%;
   }
-  ion-datetime{
-    background-color: #2f864f;
+  .calendar-background{
+    background-color: #27AE60;
+    color: black;
   }
+
+  .calendar-background-black{
+    background-color: #000000;
+    color: white;
+  }
+
 
   .inicio ion-icon{
     font-size: 35px;
   }
 
-  h1{
-    color: black;
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align the icon to the right */
+
+  .moon-icon {
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
   }
+}
+
+.text-green-500 {
+  color: #27AE60; /* Dark mode color */
+}
+
+.text-green-700 {
+  color: #ffffff; /* Light mode color */
+}

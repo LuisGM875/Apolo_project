@@ -1,9 +1,14 @@
 .icon-small {
+  --background: transparent;
   --icon-size: 8px;
   --padding-start: 0;
   --padding-end: 0;
   --padding-top: 0;
   --padding-bottom: 0;
+}
+
+.icon-small ion-button {
+  background: transparent;
 }
 
 .icon-size {
@@ -15,97 +20,106 @@
   height: var(--icon-size);
 }
 
+.buttons-card ion-button {
+  margin: 0 10px;
+}
 
-.back {
-  background: rgb(125, 145, 145);
-  border-radius: 20px !important;
 
-  ion-card-header {
-    padding: 10px 10px 0px 10px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    column-gap: 5px;
-    justify-content: center;
-    align-items: center;
+.ion-card-method{
+  background: rgb(165, 155, 155);
+}
 
-    .empresa-title {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #515151 !important;
-      grid-column: 1/4;
-    }
+.ion-card-method-black{
+  background: black;
+}
 
-    ion-thumbnail {
-      margin: 0 auto;
-      grid-row: -3/-1;
-      grid-column: 4/5;
-      width: 70px;
-      height: 70px;
-
-      img {
-        border-radius: 50%;
-      }
-    }
-
-    ion-card-title {
-      grid-column: 1/4;
-      margin: 0;
-    }
-  }
-
-  ion-label {
-    font-size: 11px !important;
-    color: #ffffff;
-    font-weight: bold;
-  }
-
-  ion-text {
-    font-weight: bold;
-  }
-
-  ion-card-content {
-    font-size: 11px !important;
-    color: #ffffff;
-    padding: 0px !important;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    justify-content: center;
-    align-items: flex-start;
-
-    ion-item {
-      font-size: 11px !important;
-      color: #ffffff;
-      li {
-        margin: 0px;
-        padding: 5px;
-      }
-    }
-
-    ion-grid {
-      padding: 0px;
-      ion-row {
-        ion-col:last-child {
-          padding-left: 10px;
-        }
-      }
-    }
-  }
-
-  .buttons-card {
+ion-card-header {
+  .header-content {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
 
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
 
-    ion-button {
-      --background: rgba(255, 255, 255, 0.3);
-      margin: 0px 10px 10px 10px;
-      --border-radius: 10px;
-      text-transform: capitalize;
+  ion-thumbnail {
+    margin-left: 10px;
+    width: 70px;
+    height: 70px;
+
+    img {
+      border-radius: 50%;
     }
   }
 
-  ion-icon {
-    font-size: 25px;
+  .empresa-title {
+    font-weight: bold;
+    margin: 0;
   }
+
+  ion-card-title {
+    margin: 5px 0;
+  }
+}
+
+ion-card-content {
+  background: rgba(165, 155, 155, 0.87);
+  padding: 0;
+  margin: 0;
+}
+
+.no-background {
+  --background: transparent;
+}
+
+.padded-text {
+  padding: 3px 0;
+  margin: 0;
+}
+
+.right-aligned {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+}
+
+.buttons-card {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+}
+
+
+ion-card-content{
+  background: rgba(165, 155, 155, 0.87);
+}
+
+.no-background {
+  --background: transparent;
+}
+
+.padded-text {
+  padding: 3px 0;
+}
+
+.right-aligned {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.text-green-500 {
+  color: #27AE60; /* Dark mode color */
+}
+
+.text-green-700 {
+  color: #ffffff; /* Light mode color */
 }

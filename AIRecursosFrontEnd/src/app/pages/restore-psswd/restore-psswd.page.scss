@@ -97,3 +97,27 @@ ion-content {
         }
     }
 }
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align the icon to the right */
+  padding-right: 40px; /* Add padding to the right */
+}
+
+.moon-icon {
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+}
+
+.text-green-500 {
+  color: #e4e4e4; /* Dark mode color */
+}
+
+.text-green-700 {
+  color: #000000;; /* Light mode color */
+}
+
+.text-icon{
+  color: #337043;;
+}
+

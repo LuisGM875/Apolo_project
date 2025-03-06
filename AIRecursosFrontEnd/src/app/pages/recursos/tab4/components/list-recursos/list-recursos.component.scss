@@ -1,13 +1,40 @@
 ion-card {
-    padding: 0px;
-    margin-top: 0px;
+  padding: 0px;
+  margin-top: 0px;
 
-    div {
-        ion-button {
-            --background: none;
-            color: #000000;
-            margin: 0px;
-            font-size: 12px;
-        }
+  div {
+    ion-button {
+      color: #000000;
+      margin: 0px;
+      font-size: 12px;
     }
+  }
+}
+
+.no-background {
+  --background: transparent;
+}
+
+.centered-card {
+  margin: 0 auto; /* Center the card */
+  border-radius: 15px; /* Rounded borders */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px; /* Optional: limit the card width */
+}
+
+.back-green-500 {
+  background-color: #3e3d3d; /* Dark mode color */
+}
+
+.back-green-700 {
+  background-color: #337043;; /* Light mode color */
+}
+
+.text-green-500 {
+  color: #e4e4e4; /* Dark mode color */
+}
+
+.text-green-700 {
+  color: #000000;; /* Light mode color */
 }
